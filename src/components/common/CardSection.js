@@ -5,7 +5,7 @@ import { View } from 'react-native';
 // SLR IS THE SHORTCUT TO THIS
 const CardSection = (props) => {
     return (
-        <View style={styles.contianerStyle}>
+        <View style={[styles.contianerStyle, props.style]}>
         {props.children}
         </View>
     );
