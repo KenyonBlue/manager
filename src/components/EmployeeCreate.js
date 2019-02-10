@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Picker, Text } from 'react-native'
+import { Picker, Text, View } from 'react-native'
 import { connect } from 'react-redux';
 import { employeeUpdate, employeeCreate } from '../actions';
 import { Card, CardSection, Button, Input } from './common';
@@ -8,13 +8,13 @@ import { Card, CardSection, Button, Input } from './common';
 class EmployeeCreate extends Component {
     onButtonPress() {
         const { name, phone, shift } = this.props;
-
-        this.props.employeeCreate({ name, phone, shift: shift || 'Monday' })
-    }
+    
+        this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+      }
 
     render() {
         return (
-            <Card>
+            <View>
                 <CardSection>
                     <Input
                         label="Name"
@@ -38,7 +38,6 @@ class EmployeeCreate extends Component {
 
                     
                         <Picker
-                        
                         selectedValue={this.props.shift}
                         onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
                     >
@@ -58,10 +57,7 @@ class EmployeeCreate extends Component {
                     Create
                     </Button>
             </CardSection>
-
-                
-                
-            </Card >
+            </View >
         );
     }
 }
